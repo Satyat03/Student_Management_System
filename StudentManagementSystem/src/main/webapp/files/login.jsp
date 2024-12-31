@@ -97,7 +97,7 @@
             position: absolute;
             border-radius: 50%;
             background: #659EC7;
-            animation: float 4s infinite ease-in-out;
+            animation: float 3s infinite ease-in-out;
         }
 
         .circle.one {
