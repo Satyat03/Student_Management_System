@@ -1,6 +1,7 @@
 package equ.cjc.main.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,25 @@ public class StudentServiceImpl implements StudentService{
 	public List<Student> getBatchesStudent(String batchNumber) {
 		
 		return sr.findAllByBatchNumber(batchNumber);
+	}
+
+	@Override
+	public Student getStudent(int id) {
+		
+		return sr.findById(id).get();
+	}
+
+	@Override
+	public List<Student> updateStudentFees(int id, float amt) {
+		
+		Optional<Student> op=sr.findById(id);
+		if(op.isPresent())
+		{
+			Student s=op.get();
+			s.setFeesPaid(s.getFeesPaid()+amt);
+			sr.save(s);
+		}
+		return sr.findAll();
 	}
 
 }

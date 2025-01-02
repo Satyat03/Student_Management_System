@@ -79,4 +79,21 @@ public class smsController {
 		
 		
 	}
+	
+	@RequestMapping("/fees")
+	public String onFees(@RequestParam("id") int id,Model m)
+	{
+		Student s=ssi.getStudent(id);
+		m.addAttribute("data",s);
+		return "fees";
+	}
+	
+	@RequestMapping("/payfees")
+	public String payFees(@RequestParam("studentid") int id,@RequestParam("amount") float amt,Model m)
+	{
+		List<Student> list=ssi.updateStudentFees(id,amt);
+		
+		m.addAttribute("data",list);
+		return "view";
+	}
 }

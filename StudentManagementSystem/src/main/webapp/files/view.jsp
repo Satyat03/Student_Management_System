@@ -88,6 +88,21 @@ form button:hover {
 	text-align: center;
 }
 </style>
+
+<script type="text/javascript">
+	function fees() {
+		document.fn.action = "/fees"
+		document.action.submit();
+	}
+	function batch() {
+		document.fn.action = "/batch"
+		document.action.submit();
+	}
+	function remove() {
+		document.fn.action = "/remove"
+		document.action.submit();
+	}
+</script>
 </head>
 <body>
 	<!-- Navigation Bar -->
@@ -131,6 +146,7 @@ form button:hover {
 	</div>
 
 	<!-- Student Table -->
+	<form name="fn">
 	<table class="table table-hover table-bordered"
 		style="font-size: small; margin-top: 20px; background: rgba(255, 255, 255, 0.9); border-radius: 10px; overflow: hidden;">
 		<thead class="table-dark">
@@ -144,6 +160,7 @@ form button:hover {
 				<th>Batch No</th>
 				<th>Mode</th>
 				<th>Fees Received</th>
+				<th>Select</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -160,17 +177,21 @@ form button:hover {
 					<td>${s.batchMode}</td>
 					<td>${s.feesPaid}</td>
 					<td>
+					<input type="radio" name="id" value="${s.studentId}">
+					</td>
+					
+					<td>
 						<div class="btn-group btn-group-sm" role="group"
 							aria-label="Actions">
-							<a href="payfees"><button class="btn btn-outline-success">Pay
-									Fees</button></a> <a href="shiftbatch"><button
-									class="btn btn-outline-primary">Shift Batch</button></a> <a
-								href="remove"><button class="btn btn-outline-danger">Remove</button></a>
+							<button class="btn btn-outline-success" onClick="fees()">Pay-Fees</button>
+ 							<button class="btn btn-outline-primary" onClick="batch()">Shift-Batch</button>
+ 							<button class="btn btn-outline-danger" onClick="remove()">Remove</button>
 						</div>
 					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	</form>
 </body>
 </html>
