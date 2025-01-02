@@ -53,14 +53,6 @@ public class smsController {
 		return "view";
 		
 	}
-	
-	@RequestMapping("/remove")
-	public String removeStudent()
-	{
-		return "view";
-		
-	}
-	
 	@RequestMapping("/search")
 	public String searchStudent(@RequestParam("batchNumber") String batchNumber,Model m)
 	{
@@ -84,7 +76,7 @@ public class smsController {
 	public String onFees(@RequestParam("id") int id,Model m)
 	{
 		Student s=ssi.getStudent(id);
-		m.addAttribute("data",s);
+		m.addAttribute("st",s);
 		return "fees";
 	}
 	
@@ -93,6 +85,15 @@ public class smsController {
 	{
 		List<Student> list=ssi.updateStudentFees(id,amt);
 		
+		
+		m.addAttribute("data",list);
+		return "view";
+	}
+	
+	@RequestMapping("/remove")
+	public String removedelete(@RequestParam("id") int id,Model m)
+	{
+		List<Student> list=ssi.removeStudent(id);
 		m.addAttribute("data",list);
 		return "view";
 	}

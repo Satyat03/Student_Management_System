@@ -129,14 +129,8 @@ form button:hover {
 				<option value="REG-160">REG-160</option>
 				<option value="FDJ-161">FDJ-161</option>
 				<option value="REG-161">REG-162</option>
-				<option value="FDJ-162">FDJ-162</option>
-				<option value="REG-162">REG-162</option>
-				<option value="FDJ-163">FDJ-163</option>
-				<option value="REG-163">REG-163</option>
-				<option value="FDJ-164">FDJ-164</option>
-				<option value="REG-164">REG-164</option>
-				<option value="FDJ-165">FDJ-165</option>
-				<option value="REG-165">REG-165</option>
+				<option value="FDJ-185">FDJ-185</option>
+				
 			</select>
 			<button class="btn btn-outline-primary mb-1">Search</button>
 		</form>
@@ -182,7 +176,7 @@ form button:hover {
 					
 					<td>
 						<div class="btn-group btn-group-sm" role="group"
-							aria-label="Actions">
+							aria-label="....">
 							<button class="btn btn-outline-success" onClick="fees()">Pay-Fees</button>
  							<button class="btn btn-outline-primary" onClick="batch()">Shift-Batch</button>
  							<button class="btn btn-outline-danger" onClick="remove()">Remove</button>

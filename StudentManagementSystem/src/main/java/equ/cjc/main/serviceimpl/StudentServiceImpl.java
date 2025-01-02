@@ -54,4 +54,11 @@ public class StudentServiceImpl implements StudentService{
 		return sr.findAll();
 	}
 
+	@Override
+	public List<Student> removeStudent(int id) {
+		sr.deleteById(id);
+		return sr.findAll();
+		
+	}
+
 }
