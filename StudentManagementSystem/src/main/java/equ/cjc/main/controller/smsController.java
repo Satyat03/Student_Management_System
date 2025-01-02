@@ -60,4 +60,23 @@ public class smsController {
 		return "view";
 		
 	}
+	
+	@RequestMapping("/search")
+	public String searchStudent(@RequestParam("batchNumber") String batchNumber,Model m)
+	{
+		List<Student> list=ssi.getBatchesStudent(batchNumber);
+		if(list.size()>0)
+		{
+			m.addAttribute("data",list);
+			return "view";
+		}
+		else {
+			List<Student> l=ssi.getAllStudents();
+			m.addAttribute("data",l);
+			m.addAttribute("message","No record found for the batch  "+batchNumber);
+			return "view";
+		}
+		
+		
+	}
 }

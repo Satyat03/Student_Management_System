@@ -149,6 +149,8 @@
                             <option value="#" disabled>Select Batch Number</option>
                             <option value="FDJ-160">FDJ-160</option>
                             <option value="REG-160">REG-160</option>
+                            <option value="FDJ-185">FDJ-185</option>
+                            <option value="REG-185">REG-185</option>
                         </select>
                         
                     </div>
