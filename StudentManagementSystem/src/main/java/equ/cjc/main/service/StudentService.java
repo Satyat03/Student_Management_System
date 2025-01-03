@@ -12,4 +12,5 @@ public interface StudentService {
 	public Student getStudent(int id);
 	public List<Student> updateStudentFees(int id, float amt);
 	public List<Student> removeStudent(int id);
+	public List<Student> paging(int pageNo, int i);
 }

@@ -1,9 +1,12 @@
 package equ.cjc.main.serviceimpl;
 
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import equ.cjc.main.model.Student;
@@ -60,5 +63,15 @@ public class StudentServiceImpl implements StudentService{
 		return sr.findAll();
 		
 	}
+
+	@Override
+	public List<Student> paging(int pageNo, int pageSize) {
+
+		Pageable pageable = (Pageable) PageRequest.of(pageNo, pageSize, Sort.by("studentFullName").ascending());
+		List<Student> list = sr.findAll;(pageable).getContent();
+
+		return list;
+	}
+
 
 }

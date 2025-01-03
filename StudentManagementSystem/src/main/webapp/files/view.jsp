@@ -130,7 +130,7 @@ form button:hover {
 				<option value="FDJ-161">FDJ-161</option>
 				<option value="REG-161">REG-162</option>
 				<option value="FDJ-185">FDJ-185</option>
-				
+
 			</select>
 			<button class="btn btn-outline-primary mb-1">Search</button>
 		</form>
@@ -141,51 +141,60 @@ form button:hover {
 
 	<!-- Student Table -->
 	<form name="fn">
-	<table class="table table-hover table-bordered"
-		style="font-size: small; margin-top: 20px; background: rgba(255, 255, 255, 0.9); border-radius: 10px; overflow: hidden;">
-		<thead class="table-dark">
-			<tr>
-				<th>ID</th>
-				<th>Student Name</th>
-				<th>Student Email</th>
-				<th>Age</th>
-				<th>College Name</th>
-				<th>Course Name</th>
-				<th>Batch No</th>
-				<th>Mode</th>
-				<th>Fees Received</th>
-				<th>Select</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${data}" var="s">
+		<table class="table table-hover table-bordered"
+			style="font-size: small; margin-top: 20px; background: rgba(255, 255, 255, 0.9); border-radius: 10px; overflow: hidden;">
+			<thead class="table-dark">
 				<tr>
-					<td>${s.studentId}</td>
-					<td>${s.studentFullName}</td>
-					<td>${s.studentEmail}</td>
-					<td>${s.studentAge}</td>
-					<td>${s.studentCollegeName}</td>
-					<td>${s.studentCourse}</td>
-					<td>${s.batchNumber}</td>
-					<td>${s.batchMode}</td>
-					<td>${s.feesPaid}</td>
-					<td>
-					<input type="radio" name="id" value="${s.studentId}">
-					</td>
-					
-					<td>
-						<div class="btn-group btn-group-sm" role="group"
-							aria-label="....">
-							<button class="btn btn-outline-success" onClick="fees()">Pay-Fees</button>
- 							<button class="btn btn-outline-primary" onClick="batch()">Shift-Batch</button>
- 							<button class="btn btn-outline-danger" onClick="remove()">Remove</button>
-						</div>
-					</td>
+					<th>ID</th>
+					<th>Student Name</th>
+					<th>Student Email</th>
+					<th>Age</th>
+					<th>College Name</th>
+					<th>Course Name</th>
+					<th>Batch No</th>
+					<th>Mode</th>
+					<th>Fees Received</th>
+					<th>Select</th>
+					<th>Actions</th>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<c:forEach items="${data}" var="s">
+					<tr>
+						<td>${s.studentId}</td>
+						<td>${s.studentFullName}</td>
+						<td>${s.studentEmail}</td>
+						<td>${s.studentAge}</td>
+						<td>${s.studentCollegeName}</td>
+						<td>${s.studentCourse}</td>
+						<td>${s.batchNumber}</td>
+						<td>${s.batchMode}</td>
+						<td>${s.feesPaid}</td>
+						<td><input type="radio" name="id" value="${s.studentId}">
+						</td>
+
+						<td>
+							<div class="btn-group btn-group-sm" role="group"
+								aria-label="....">
+								<button class="btn btn-outline-success" onClick="fees()">Pay-Fees</button>
+								<button class="btn btn-outline-primary" onClick="batch()">Shift-Batch</button>
+								<button class="btn btn-outline-danger" onClick="remove()">Remove</button>
+							</div>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+
+		</table>
 	</form>
+	<nav aria-label="...">
+  <ul class="pagination pagination-lg">
+    <li class="page-item">
+      <a class="page-link" href="paging?pageNo=0" tabindex="-1">1</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="paging?pageNo=1">2</a></li>
+    <li class="page-item"><a class="page-link" href="paging?pageNo=2">3</a></li>
+  </ul>
+</nav>
 </body>
 </html>
