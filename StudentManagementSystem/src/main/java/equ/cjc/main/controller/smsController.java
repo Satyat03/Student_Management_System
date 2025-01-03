@@ -1,15 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
 package equ.cjc.main.controller;
 
 import java.util.List;
