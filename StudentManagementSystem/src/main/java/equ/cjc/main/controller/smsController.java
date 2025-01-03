@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 package equ.cjc.main.controller;
 
 import java.util.List;
@@ -102,7 +114,25 @@ public class smsController {
 	public String paging(@RequestParam("pageNo") int pageNo,Model m) {
 		List<Student> list=ssi.paging(pageNo,2);
 		m.addAttribute("data",list);
-		return "adminscreen";
+		return "view";
 	}
 
+	
+	@RequestMapping("/batch")
+	public String updatebatch(@RequestParam("id") int id,Model m)
+	{
+		Student s=ssi.getStudent(id);
+		m.addAttribute("st",s);
+		return "batch";
+	}
+	
+	
+	@RequestMapping("/updatebatch")
+	public String ShiftBatch(@RequestParam("studentid") int id,@RequestParam("batchNumber") String batchNumber,@RequestParam("batchMode") String batchMode,Model m)
+	{
+		List<Student> list=ssi.updateStudentBatch(id,batchNumber,batchMode);
+		m.addAttribute("data",list);
+		return "view";
+		
+	}
 }

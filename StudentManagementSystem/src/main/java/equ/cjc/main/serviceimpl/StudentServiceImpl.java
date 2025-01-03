@@ -1,11 +1,11 @@
 package equ.cjc.main.serviceimpl;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -65,12 +65,25 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public List<Student> paging(int pageNo, int pageSize) {
+	public List<Student> paging(int pageNo, int i) {
 
-		Pageable pageable = (Pageable) PageRequest.of(pageNo, pageSize, Sort.by("studentFullName").ascending());
-		List<Student> list = sr.findAll;(pageable).getContent();
+		Pageable pageable= PageRequest.of(pageNo, i, Sort.by("studentFullName").ascending()); 
+		List<Student> list=sr.findAll(pageable).getContent();
 
 		return list;
+	}
+
+	@Override
+	public List<Student> updateStudentBatch(int id, String batchNumber,String BatchMode) {
+		Optional<Student> op=sr.findById(id);
+		if(op.isPresent())
+		{
+			Student s=op.get();
+			s.setBatchNumber(batchNumber);
+			s.setBatchMode(BatchMode);
+			sr.save(s);
+		}
+		return sr.findAll();
 	}
 
 

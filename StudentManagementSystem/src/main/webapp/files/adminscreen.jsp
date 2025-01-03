@@ -8,68 +8,85 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: #baacac;
-            background-image:url("images/komarov-egor-sevuhbBmZtQ-unsplash.jpg");
+            background: #f0f0f5;
+            background-image: url("images/komarov-egor-sevuhbBmZtQ-unsplash.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #333;
         }
 
         .card {
-            margin-top: 20px;
-            background: #C2DFFF;
-            border-radius: 25px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
 
         nav {
-            background: #82CAFF;
-            border-radius: 25px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
         }
 
         nav img {
-            height: 50px;
+            height: 40px;
+            margin-right: 10px;
         }
 
         nav a button {
-            background: #007bff;
+            background: white;
             border: none;
-            color: white;
+            color: #007bff;
             padding: 8px 12px;
             margin: 0 5px;
             border-radius: 5px;
-            transition: background 0.3s;
+            font-size: 14px;
+            transition: background 0.3s, color 0.3s;
         }
 
         nav a button:hover {
             background: #0056b3;
+            color: white;
         }
 
         h3 {
             text-align: center;
             margin: 20px 0;
-            color: #444;
+            color: #333;
         }
 
         form {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             padding: 20px;
         }
 
+        form .form-outline {
+            margin-bottom: 20px;
+        }
+
+        form .form-outline label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
         form .form-outline input,
         form select {
-            border: 1px solid rgba(0, 0, 0, 0.2);
+            width: 100%;
             padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
-            margin-bottom: 15px;
         }
 
         form button {
             background: #007bff;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 12px;
+            font-size: 16px;
             width: 100%;
             border-radius: 5px;
             transition: background 0.3s;
@@ -79,8 +96,12 @@
             background: #0056b3;
         }
 
+        .form-group.radio-group label {
+            margin-left: 10px;
+            margin-right: 20px;
+        }
+
         .view {
-            padding: 20px;
             text-align: center;
         }
     </style>
@@ -88,8 +109,11 @@
 <body>
     <div class="container">
         <div class="card">
-            <nav class="d-flex justify-content-between align-items-center p-3">
-                <img src="images/cjclogo.jpeg.jpg" alt="CJC Logo">
+            <nav class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <img src="images/cjclogo.jpeg.jpg" alt="CJC Logo">
+                    <span class="fw-bold">CJC Student Portal</span>
+                </div>
                 <div>
                     <a href="#enroll"><button>Enroll Student</button></a>
                     <a href="viewpage"><button>View Student</button></a>
@@ -100,51 +124,44 @@
                 <h3>Student Enrollment Form</h3>
                 <form action="enroll_student" method="POST">
                     <div class="form-outline">
-                    <label for="studentFullName">Student Full Name</label>
+                        <label for="studentFullName">Student Full Name</label>
                         <input type="text" name="studentFullName" placeholder="Full Name" class="form-control">
-                        
                     </div>
                     <div class="form-outline">
-                     <label for="studentEmail">Student Email</label>
+                        <label for="studentEmail">Student Email</label>
                         <input type="email" name="studentEmail" placeholder="Email" class="form-control">
                     </div>
                     <div class="form-outline">
-                     <label for="StudentAge">Student Age</label>
+                        <label for="studentAge">Student Age</label>
                         <input type="number" name="studentAge" placeholder="Age" class="form-control">
-                       
                     </div>
                     <div class="form-outline">
-                    <label for="studentCollageName">Student College Name</label>
+                        <label for="studentCollageName">Student College Name</label>
                         <input type="text" name="studentCollageName" placeholder="College Name" class="form-control">
-                        
                     </div>
                     <div class="form-outline">
-                    <label for="feesPaid">Fees Paid</label>
+                        <label for="feesPaid">Fees Paid</label>
                         <input type="number" name="feesPaid" placeholder="Fees Paid" class="form-control">
-                        
                     </div>
-                    <div>
-                        <label>Student Course:</label>
-                        <div class="d-flex">
-                            <input type="radio" name="studentCourse" id="java" value="Java" checked>
-                            <label for="java">Java</label>
-                            <input type="radio" name="studentCourse" id="python" value="Python">
-                            <label for="python">Python</label>
-                            <input type="radio" name="studentCourse" id="testing" value="Testing">
-                            <label for="testing">Testing</label>
-                        </div>
+                    <div class="form-group radio-group">
+                        <label>Student Course:</label><br>
+                        <input type="radio" name="studentCourse" id="java" value="Java" checked>
+                        <label for="java">Java</label>
+                        <input type="radio" name="studentCourse" id="python" value="Python">
+                        <label for="python">Python</label>
+                        <input type="radio" name="studentCourse" id="testing" value="Testing">
+                        <label for="testing">Testing</label>
                     </div>
                     <div class="form-outline">
-                    <label for="batchMode">Batch Mode</label>
+                        <label for="batchMode">Batch Mode</label>
                         <select name="batchMode" class="form-select">
                             <option value="#" disabled>Select Batch Mode</option>
                             <option value="Online">Online</option>
                             <option value="Offline">Offline</option>
                         </select>
-                        
                     </div>
                     <div class="form-outline">
-                    <label for="batchNumber">Batch Number</label>
+                        <label for="batchNumber">Batch Number</label>
                         <select name="batchNumber" class="form-select">
                             <option value="#" disabled>Select Batch Number</option>
                             <option value="FDJ-160">FDJ-160</option>
@@ -152,7 +169,6 @@
                             <option value="FDJ-185">FDJ-185</option>
                             <option value="REG-185">REG-185</option>
                         </select>
-                        
                     </div>
                     <button type="submit">Submit</button>
                 </form>
